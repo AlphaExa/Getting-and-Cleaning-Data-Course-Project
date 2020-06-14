@@ -38,7 +38,9 @@ Citation:
 > URL: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
 ## Data Cleaning Process
-The `run_analysis.R` can be used to replicate the data cleaning process I have done to create the `tidy_data.txt`. Below depicts the steps of the process:
+The `run_analysis.R` script can be used to replicate the data cleaning process I have done to create the `tidy_data.txt`. The `tidy_data.txt` in the repository was created using R version 3.6.3 (2020-02-29) on Windows 10 64-bit edition.
+
+Below depicts the steps of the process:
 
 0. Load the package `dplyr` to use relevant codes later.
 1. Obtain the original data source from internet and unzip it, if the original data source is not already existed in the working directoty.
