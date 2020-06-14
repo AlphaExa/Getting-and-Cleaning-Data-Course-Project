@@ -55,7 +55,7 @@ Below depicts the steps of the process:
     + Then, the 3 data above are merged by columns, resulting in a combined data set of 10299 observations and 563 variables, with first column as Subject, second column as Activity, with the rest of the columns coming from Values data.
     + The variables (i.e. columns) are renamed for easier identification. The first column is called "Subject", followed by "Activity" for the second column. The rest of columns are asasigned named using the `features` data.
  4. Extract only the measurements on the mean and standard deviation for each measurement.
-    + First, `grep` function is used to search for the relevant columns, namely `Subject`, `Activity`, variables with the names of `mean() ` and `std()`.
+    + First, `grep()` function is used to search for the relevant columns, namely `Subject`, `Activity`, variables with the names of `mean() ` and `std()`.
     + Note that the meanFreq() from the original data source is not included in this data set as it refers to the weighted average of the frequency components to obtain a mean frequency. Thus, it is deemed as irrelevant from the mean of each feature.
     + Then, a subdata is created by subsetting only the relevant variables, resulting in 10299 observations but only 68 variables.
 5. The activity labels data is used to label the data of Activity variables for easier identification.
@@ -65,7 +65,7 @@ Below depicts the steps of the process:
     + The term `std` is replaced with `standardDeviation`. The brackets `()` in `mean()` and `standardDeviation()` are also removed.
     + A typo of `BodyBody` is spotted and thus replaced with `Body`.
 7. Create an independent tidy data with the average value of each variable for each activity and subject
-    + The summarized tidy data is created using codes from `dplyr` packages, namely `group_by` (to group data based on subject and activity), `summarize_all` (to calculate mean value according to the group assigned) and the pipe operator `%>%` (for quicker operation without typing too much codes).
-    + The newly created tidy daya has 180 observations and 68 variables. It is then exported as `tidy_data.txt` in the working directory using the function `write.table()` with `row.names = FALSE`.
+    + The summarized tidy data is created using codes from `dplyr` packages, namely `group_by()` (to group data based on subject and activity), `summarize_all()` (to calculate mean value according to the group assigned) and the pipe operator `%>%` (for quicker operation without typing too much codes).
+    + The newly created tidy daya has 180 observations and 68 variables. It is then exported to the working directory as `tidy_data.txt` using the function `write.table()` with `row.names = FALSE`.
 
 Please refer to the CodeBook.md for the details of the `tidy_data.txt`.
