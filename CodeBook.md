@@ -26,9 +26,11 @@ There are 68 variables for 180 observations in the data set, which include 2 ide
 
 ### Identifier
 Subject
+
 Integer data. The identifier code for each subject, ranging from 1 - 30.
  
 Activity
+
 Factor with 6 levels. The identifier code for the activities performed by the subject while wearing a smartphone (Samsung Galaxy S II) on the waist.
  * Levels: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING
  
@@ -42,10 +44,8 @@ The features come from the accelerometer and gyroscope 3-axial raw signals (`-X,
 * Relevant variables: (18 variables)
   + Time-BodyAccelerometer-mean-X, Y, Z
   + Time-BodyAccelerometer-standardDeviation-X, Y, Z
-  
   + Time-GravityAccelerometer-mean-X, Y, Z
   + Time-GravityAccelerometer-standardDeviation-X, Y, Z
-  
   + Time-BodyGyroscope-mean-X, Y, Z
   + Time-BodyGyroscope-standardDeviation-X, Y, Z
   
@@ -57,7 +57,6 @@ Subsequently, the body linear acceleration and angular velocity were derived in 
   + Time-BodyAccelerometerJerk-standardDeviation-X, Y, Z
   + Time-BodyGyroscopeJerk-mean-X, Y, Z
   + Time-BodyGyroscopeJerk-standardDeviation-X, Y, Z
-  
   + Time-BodyAccelerometerMagnitude-mean
   + Time-BodyAccelerometerMagnitude-standardDeviation
   + Time-GravityAccelerometerMagnitude-mean
@@ -71,14 +70,13 @@ Subsequently, the body linear acceleration and angular velocity were derived in 
  
 Finally a Fast Fourier Transform (FFT) was applied to some of these signals (Note the prefix `Frequency-` to indicate frequency domain signals). 
 
-* Relevant variables: (26 variables)
+* Relevant variables: (26 variables)  
  + Frequency-BodyAccelerometer-mean-X, Y, Z
  + Frequency-BodyAccelerometer-standardDeviation-X, Y, Z
  + Frequency-BodyAccelerometerJerk-mean-X, Y, Z
  + Frequency-BodyAccelerometerJerk-standardDeviation-X, Y, Z
  + Frequency-BodyGyroscope-mean-X, Y, Z
  + Frequency-BodyGyroscope-standardDeviation-X, Y, Z
- 
  + Frequency-BodyAccelerometerMagnitude-mean
  + Frequency-BodyAccelerometerMagnitude-standardDeviation
  + Frequency-BodyAccelerometerJerkMagnitude-mean
