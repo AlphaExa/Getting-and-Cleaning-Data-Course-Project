@@ -66,7 +66,7 @@
     subdata$Activity <- factor(subdata$Activity, levels = actLabels[,1], labels = actLabels[,2])
 
 # Step 6: Appropriately labels the data set with descriptive variable names
-    # Replace the prefix "t" with "Time", and "f" with "Frequency"
+    # Replace the prefix "t" with "Time-", and "f" with "Frequency-"
     names(subdata) <- gsub("^t", "Time-", names(subdata))
     names(subdata) <- gsub("^f", "Frequency-", names(subdata))
     
@@ -89,8 +89,7 @@
     # Summarize the data with average value of each variable, grouped by Subject & Activity
     tidydata <- subdata %>%
         group_by(Subject, Activity) %>%
-        summarize_all(funs(mean)) %>%
-        arrange(Subject, Activity)
+        summarize_all(funs(mean))
         
     # Produce the tidydata
     write.table(tidydata, "tidy_data.txt", row.names = FALSE, quote = FALSE)
