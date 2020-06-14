@@ -43,21 +43,27 @@ The `run_analysis.R` can be used to replicate the data cleaning process I have d
 0. Load the package `dplyr` to use relevant codes later.
 1. Obtain the original data source from internet and unzip it, if the original data source is not already existed in the working directoty.
 2. Read the original data file
-  + Read the features data (`features.txt`) and the activity labels data (`activity_labels.txt`). These data files will be used to rename columns and factors of the data set produced later.
-  + Read the test sets and training sets. There are 3 data files for test sets and training sets respectively, namely Subjects, Activity, and Values
-    + Subjects data (`subject_test.txt` and `subject_train.txt`) contains the Subject Identifier Code.
-    + Activity data (`y_test.txt` and `y_train.txt`) contains the Activity Identifier Code.
-    + Values data (`x_test.txt` and `x_train.txt`) contains the values of measurement for each features.
+    + Read the features data (`features.txt`) and the activity labels data (`activity_labels.txt`). These data files will be used to rename columns and factors of the data set produced later.
+    + Read the test sets and training sets. There are 3 data files for test sets and training sets respectively, namely Subjects, Activity, and Values
+      + Subjects data (`subject_test.txt` and `subject_train.txt`) contains the Subject Identifier Code.
+      + Activity data (`y_test.txt` and `y_train.txt`) contains the Activity Identifier Code.
+      + Values data (`x_test.txt` and `x_train.txt`) contains the values of measurement for each features.
 3. Merge the training and test sets to create one data set.
-  + First, the Subjects data of test sets and training sets are merged by rows to produce one Subject data. The same goes for the Activity data and Values data.
-  + Then, the 3 data above are merged by columns, resulting in a combined data set of 10299 observations and 563 variables, with first column as Subject, second column as Activity, with the rest of the columns coming from Values data.
-  + The variables (i.e. columns) are renamed for easier identification. The first column is called "Subject", followed by "Activity" for the second column. The rest of columns are asasigned named using the `features` data.
+    + First, the Subjects data of test sets and training sets are merged by rows to produce one Subject data. The same goes for the Activity data and Values data.
+    + Then, the 3 data above are merged by columns, resulting in a combined data set of 10299 observations and 563 variables, with first column as Subject, second column as Activity, with the rest of the columns coming from Values data.
+    + The variables (i.e. columns) are renamed for easier identification. The first column is called "Subject", followed by "Activity" for the second column. The rest of columns are asasigned named using the `features` data.
  4. Extract only the measurements on the mean and standard deviation for each measurement.
-  + First, `grep` function is used to search for the relevant columns, namely `Subject`, `Activity`, variables with the names of `mean() ` and `std()`.
-  + Note that
-  + Then, a subdata is created by subsetting only the relevant variables, resulting in 10299 observations but only 68 variables.
+    + First, `grep` function is used to search for the relevant columns, namely `Subject`, `Activity`, variables with the names of `mean() ` and `std()`.
+    + Note that the meanFreq() from the original data source is not included in this data set as it refers to the weighted average of the frequency components to obtain a mean frequency. Thus, it is deemed as irrelevant from the mean of each feature.
+    + Then, a subdata is created by subsetting only the relevant variables, resulting in 10299 observations but only 68 variables.
+5. The activity labels data is used to label the data of Activity variables for easier identification.
+6. In order to better comprehend the variable names, some change are made to the variable names:
+    + The prefix `t` is replaced with `Time-`, the prefix `f` is replaced with `Frequency-`
+    + The terms `Acc`, `Gyro`, and `Mag` are replaced with `Accelerometer`, `Gyroscope`, and `Magnitude` respectively.
+    + The term `std` is replaced with `standardDeviation`. The brackets `()` in `mean()` and `standardDeviation()` are also removed.
+    + A typo of `BodyBody` is spotted and thus replaced with `Body`.
+7. Create an independent tidy data with the average value of each variable for each activity and subject
+    + The summarized tidy data is created using codes from `dplyr` packages, namely `group_by` (to group data based on subject and activity), `summarize_all` (to calculate mean value according to the group assigned) and the pipe operator `%>%` (for quicker operation without typing too much codes).
+    + The newly created tidy daya has 180 observations and 68 variables. It is then exported as `tidy_data.txt` in the working directory using the function `write.table()` with `row.names = FALSE`.
 
-
-The R script run_analysis.R can be used to create the data set. It retrieves the source data set and transforms it to produce the final data set by implementing the following steps (see the Code book for details, as well as the comments in the script itself):
-
-
+Please refer to the CodeBook.md for the details of the `tidy_data.txt`.
