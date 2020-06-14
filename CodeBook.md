@@ -48,7 +48,7 @@ The features come from the accelerometer and gyroscope 3-axial raw signals (`-X,
   + Time-BodyGyroscope-standardDeviation-X, Y, Z
   
   
-Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm.
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals. Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm.
 
 * Relevant variables: (22 variables)
   + Time-BodyAccelerometerJerk-mean-X, Y, Z
