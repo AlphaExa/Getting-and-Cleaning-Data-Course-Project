@@ -35,6 +35,8 @@ Activity
 ### Averaged Mean and Standard Deviation for Each Feature
 In the original data source, the subjects had performed the same activity for multiple times with respective mean and standard deviation of each feature. In this data set, however, the multiple means and standard deviations of each feature are averaged for each subject and activity. 
 
+Note that the `meanFreq()` from the original data source is not included in this data set as it refers to the weighted average of the frequency components to obtain a mean frequency. Thus, it is deemed as irrelevant from the mean of each feature.
+
 All features are normalized and bounded within \[-1, 1\], stored as numeric value. Prior to normalization, the units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2), while the gyroscope units are rad/seg.
 
 The features come from the accelerometer and gyroscope 3-axial raw signals (`-X, -Y, -Z` are used to denote the 3-axial signals in the X, Y, and Z directions). These time domain signals (prefix `Time-` to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
@@ -46,8 +48,7 @@ The features come from the accelerometer and gyroscope 3-axial raw signals (`-X,
   + Time-GravityAccelerometer-standardDeviation-X, Y, Z
   + Time-BodyGyroscope-mean-X, Y, Z
   + Time-BodyGyroscope-standardDeviation-X, Y, Z
-  
-  
+    
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals. Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm.
 
 * Relevant variables: (22 variables)
